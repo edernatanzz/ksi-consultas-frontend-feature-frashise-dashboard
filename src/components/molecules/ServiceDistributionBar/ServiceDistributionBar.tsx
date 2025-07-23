@@ -1,4 +1,4 @@
-import { ProgressBar } from '@/components/atoms/RelatorioTop/ProgressBar/ProgressBar';
+import { ProgressBar } from '@/components/atoms/ProgressBar/ProgressBar';
 import React from 'react';
 
 interface ServiceDistributionBarProps {
