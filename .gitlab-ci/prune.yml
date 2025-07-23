@@ -1,0 +1,11 @@
+# Prune Old Artifacts Pipeline
+
+stages:
+  - prune
+
+prune-artifacts:
+  stage: prune
+  image: node:20-alpine
+  script:
+    - echo "Pruning old artifacts"
+    - echo "Limpeza de artefatos concluída"

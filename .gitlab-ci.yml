@@ -1,0 +1,17 @@
+# Configuração principal do GitLab CI
+
+stages:
+  - test
+  - coverage
+  - security
+  - cache
+  - deploy
+  - prune
+
+include:
+  - local: '.gitlab-ci/unit-test.yml'
+  - local: '.gitlab-ci/coverage.yml'
+  - local: '.gitlab-ci/security.yml'
+  - local: '.gitlab-ci/cache-deploy.yml'
+  - local: '.gitlab-ci/deploy.yml'
+  - local: '.gitlab-ci/prune.yml'

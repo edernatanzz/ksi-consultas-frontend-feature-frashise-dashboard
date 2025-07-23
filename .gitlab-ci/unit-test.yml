@@ -1,0 +1,16 @@
+# Unit Test Pipeline
+
+stages:
+  - test
+
+unit-test:
+  stage: test
+  image: node:20-alpine
+  script:
+    - echo "Running unit tests"
+    - npm ci --legacy-peer-deps
+    - npm run test:run
+  artifacts:
+    when: always
+    reports:
+      junit: junit.xml

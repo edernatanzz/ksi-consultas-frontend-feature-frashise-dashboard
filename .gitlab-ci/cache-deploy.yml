@@ -1,0 +1,15 @@
+# Cache de Deploy Pipeline
+
+stages:
+  - cache
+
+cache-deploy:
+  stage: cache
+  image: node:20-alpine
+  script:
+    - echo "Cachando dependências para deploy"
+    - npm ci --legacy-peer-deps
+  cache:
+    key: "npm-${CI_COMMIT_REF_SLUG}"
+    paths:
+      - node_modules/

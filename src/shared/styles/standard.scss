@@ -1,0 +1,139 @@
+@import 'tokens/colors';
+@import 'tokens/typography';
+@import 'tokens/spacing';
+@import 'tokens/shadows';
+@import 'tokens/radius';
+
+
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: spacing(2);
+  font-family: $font-primary;
+  font-weight: font-weight(medium);
+  text-decoration: none;
+  border: none;
+  border-radius: radius(lg);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  user-select: none;
+  
+  &:focus {
+    outline: 2px solid color(primary-500);
+    outline-offset: 2px;
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  &:not(:disabled):hover {
+    transform: translateY(-1px);
+  }
+  
+  &:not(:disabled):active {
+    transform: translateY(0);
+  }
+}
+
+// Button Variants
+@mixin button-primary {
+  background-color: color(primary-500);
+  color: color(text-inverse);
+  
+  &:not(:disabled):hover {
+    background-color: color(primary-600);
+    box-shadow: shadow(md);
+  }
+  
+  &:not(:disabled):active {
+    background-color: color(primary-700);
+  }
+}
+
+@mixin button-secondary {
+  background-color: transparent;
+  color: color(secondary-800);
+  border: 2px solid color(border-medium);
+  
+  &:not(:disabled):hover {
+    background-color: color(secondary-50);
+    border-color: color(secondary-500);
+    box-shadow: shadow(sm);
+  }
+  
+  &:not(:disabled):active {
+    background-color: color(secondary-100);
+  }
+}
+
+@mixin button-success {
+  background-color: color(success);
+  color: color(text-inverse);
+  
+  &:not(:disabled):hover {
+    background-color: darken(color(success), 10%);
+    box-shadow: shadow(md);
+  }
+}
+
+@mixin button-error {
+  background-color: color(error);
+  color: color(text-inverse);
+  
+  &:not(:disabled):hover {
+    background-color: darken(color(error), 10%);
+    box-shadow: shadow(md);
+  }
+}
+
+// Button Sizes
+@mixin button-small {
+  padding: spacing(2) spacing(3);
+  font-size: font-size(sm);
+  min-height: 2rem; // 32px
+}
+
+@mixin button-medium {
+  padding: spacing(3) spacing(4);
+  font-size: font-size(base);
+  min-height: 2.5rem; // 40px
+}
+
+@mixin button-large {
+  padding: spacing(4) spacing(6);
+  font-size: font-size(lg);
+  min-height: 3rem; // 48px
+}
+
+@mixin button-extra-large {
+  padding: spacing(5) spacing(8);
+  font-size: font-size(xl);
+  min-height: 3.5rem; // 56px
+}
+
+// Loading State
+@mixin button-loading {
+  position: relative;
+  color: transparent !important;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: radius(full);
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

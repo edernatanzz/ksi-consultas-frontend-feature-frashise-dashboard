@@ -1,0 +1,20 @@
+# Coverage Report Pipeline
+
+stages:
+  - coverage
+
+coverage-report:
+  stage: coverage
+  image: node:20-alpine
+  script:
+    - echo "Running coverage"
+    - npm ci --legacy-peer-deps
+    - npm run test:coverage
+  artifacts:
+    when: always
+    paths:
+      - coverage/
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage/cobertura-coverage.xml

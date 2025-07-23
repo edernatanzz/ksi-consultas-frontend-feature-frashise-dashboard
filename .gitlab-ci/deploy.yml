@@ -1,0 +1,18 @@
+# Deploy Pipeline
+
+stages:
+  - deploy
+
+deploy-production:
+  stage: deploy
+  image: node:20-alpine
+  only:
+    - main
+  script:
+    - echo "Deploying to production"
+    - npm ci --legacy-peer-deps
+    - npm run build
+    - npm run deploy
+  environment:
+    name: production
+    url: https://your-production-url.com

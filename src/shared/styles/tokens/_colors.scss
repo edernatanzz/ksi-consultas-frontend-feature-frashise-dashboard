@@ -1,0 +1,93 @@
+$ksi-colors : (
+    primary-50: #fef2f2,
+  primary-100: #fee2e2,
+  primary-200: #fecaca,
+  primary-300: #fca5a5,
+  primary-400: #f87171,
+  primary-500: #E02725, // Cor principal
+  primary-600: #dc2626,
+  primary-700: #b91c1c,
+  primary-800: #991b1b,
+  primary-900: #7f1d1d,
+
+  // Secondary (Navy KSI)
+  secondary-50: #f8fafc,
+  secondary-100: #f1f5f9,
+  secondary-200: #e2e8f0,
+  secondary-300: #cbd5e1,
+  secondary-400: #94a3b8,
+  secondary-500: #64748b,
+  secondary-600: #475569,
+  secondary-700: #334155,
+  secondary-800: #112331, // Cor principal
+  secondary-900: #0f172a,
+
+  // Neutral (Bege KSI)
+  neutral-50: #fefefe,
+  neutral-100: #fdfdfd,
+  neutral-200: #fbfbfb,
+  neutral-300: #f5f5f5,
+  neutral-400: #eeeeee,
+  neutral-500: #FDF6EF, // Cor principal
+  neutral-600: #d4d4d8,
+  neutral-700: #a1a1aa,
+  neutral-800: #71717a,
+  neutral-900: #3f3f46,
+
+  // System Colors
+  success: #10b981,
+  warning: #f59e0b,
+  error: #ef4444,
+  info: #3b82f6,
+
+  // Text Colors
+  text-primary: #112331,
+  text-secondary: #64748b,
+  text-muted: #94a3b8,
+  text-inverse: #ffffff,
+
+  // Background Colors
+  bg-primary: #ffffff,
+  bg-secondary: #FDF6EF,
+  bg-muted: #f8fafc,
+  bg-dark: #112331,
+
+  // Border Colors
+  border-light: #e2e8f0,
+  border-medium: #cbd5e1,
+  border-dark: #94a3b8
+);
+
+@function color($name){
+    @return map-get($ksi-colors, $name);
+}
+
+$font-primary: 'Inter', 'system-ui', '-apple-system', 'sans-serif';
+$font-heading: 'Poppins', 'Inter', 'system-ui', 'sans-serif';
+
+$font-weights: (
+  light: 300,
+  regular: 400,
+  medium: 500,
+  semibold: 600,
+  bold: 700
+);
+
+$font-sizes: (
+  xs: 0.75rem,    // 12px
+  sm: 0.875rem,   // 14px
+  base: 1rem,     // 16px
+  lg: 1.125rem,   // 18px
+  xl: 1.25rem,    // 20px
+  2xl: 1.5rem,    // 24px
+  3xl: 1.875rem,  // 30px
+  4xl: 2.25rem    // 36px
+);
+
+@function font-size($size) {
+  @return map-get($font-sizes, $size);
+}
+
+@function font-weight($weight) {
+  @return map-get($font-weights, $weight);
+}

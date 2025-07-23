@@ -1,0 +1,55 @@
+.card {
+  width: 320px;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 2px solid #e5e7eb;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1;
+
+  &:hover {
+    transform: scale(1.02);
+    border-color: #d1d5db;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.icon {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.info {
+  flex: 1;
+}
+
+.name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.description {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.selectedInfo {
+  /* Mantendo apenas se houver alguma necessidade específica de SCSS para o posicionamento ou pseudo-elementos */
+}
+
+.count {
+  font-weight: 600;
+  /* Removed color property - handled by Tailwind textColorClass */
+  /* font-size: 1.125rem; - handled by Tailwind text-lg in component */
+} 

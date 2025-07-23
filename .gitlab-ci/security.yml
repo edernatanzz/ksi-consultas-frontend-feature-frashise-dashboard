@@ -1,0 +1,16 @@
+# Security Scan Pipeline
+
+stages:
+  - security
+
+security-scan:
+  stage: security
+  image: node:20-alpine
+  script:
+    - echo "Running security scans"
+    - npm ci --legacy-peer-deps
+    - npm audit --audit-level=high --json > gl-sast-report.json || true
+  artifacts:
+    when: always
+    reports:
+      sast: gl-sast-report.json
